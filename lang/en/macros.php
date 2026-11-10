@@ -1,0 +1,75 @@
+<?php
+
+return [
+    'disclaimer' => 'These numbers are estimates based on general equations for age, height, weight and activity. They are not a diagnosis or medical advice and do not replace a doctor or dietitian. If you have a health condition or take regular medication, talk to your doctor before starting keto.',
+    'disclaimer_short' => 'Estimates only — not medical advice.',
+
+    'explain' => [
+        'bmr' => 'Your basal metabolic rate (BMR) is the energy your body uses at complete rest. We estimate it with the Mifflin-St Jeor equation from your sex, age, height and weight.',
+        'tdee' => 'Your daily energy needs (TDEE) are your BMR multiplied by a factor for how active you are. Eating this much keeps your weight stable.',
+        'adjustment_lose' => 'To lose weight we subtract a moderate 20% from your daily needs — never more than 25%, and never faster than about 1% of your body weight per week.',
+        'adjustment_maintain' => 'To maintain your weight, your calorie target equals your daily needs.',
+        'adjustment_gain' => 'To gain weight we add a small 10% surplus on top of your daily needs.',
+        'floor' => 'We never set calories below your resting needs (BMR), or below 1200 kcal for women and 1500 kcal for men. Very low-calorie diets should only be followed under medical supervision.',
+        'protein' => 'Protein is set per kilogram of body weight (:per_kg g/kg) to protect your muscles. If your weight is above the healthy range we use an adjusted weight (:reference_kg kg) so the target stays realistic.',
+        'net_carbs' => 'Net carbs are total carbs minus fibre. This is the number that matters for ketosis, and it is a fixed daily amount in grams that depends on the approach you chose.',
+        'total_carbs' => 'Total carbs = net carbs + a fibre allowance (14 g per 1000 kcal, up to 35 g), so vegetables, nuts and seeds always have room in your day.',
+        'fat' => 'Fat fills the calories left after protein and carbs. Think of it as an upper limit, not a goal you must reach — especially if you want to lose weight.',
+        'rounding' => 'Calories are rounded to the nearest 10 and grams to the nearest 1.',
+    ],
+
+    'warnings' => [
+        'age_under_18' => 'You are under 18. A keto diet during the growing years should only be followed with a doctor or dietitian, so we show maintenance calories and do not calculate a weight-loss deficit.',
+        'age_65_plus' => 'From age 65, keeping muscle and reviewing your medication matter more. It is a good idea to check with your doctor before changing your diet.',
+        'bmi_underweight' => 'Your current weight is below the healthy range (BMI under 18.5), so we do not calculate a calorie deficit. Please talk to a doctor before following any diet.',
+        'bmi_40_plus' => 'With a BMI of 40 or more, losing weight is safer and works better with medical follow-up. Please involve your doctor.',
+        'calorie_floor_applied' => 'We raised your calories to the safe minimum for you. Weight loss may be a little slower, but it is safer and easier to keep up.',
+        'aggressive_goal' => 'Your goal weight means losing more than a quarter of your current weight. Break it into smaller milestones, and consider medical follow-up along the way.',
+        'goal_weight_underweight' => 'The goal weight you chose is below the healthy range for your height (BMI under 18.5). We recommend choosing a higher goal weight.',
+        'goal_weight_mismatch' => 'Your goal weight does not match the goal you selected. Please check the goal or the goal weight.',
+        'protein_limited' => 'We capped your protein at 35% of your calories so the plan stays balanced.',
+        'low_fat' => 'After protein and carbs, less than half of your calories are left for fat — unusually low for keto. Consider a higher activity level setting or reviewing your details.',
+    ],
+
+    'conditions' => [
+        'title' => 'Before you start',
+        'intro' => 'Keto is not suitable for everyone without supervision. Do any of the following apply to you?',
+        'none' => 'None of these apply to me',
+        'advice' => 'Please do not start keto without talking to your doctor first. Your medication doses may need adjusting, and some conditions need regular monitoring.',
+        'diabetes_medication' => 'Diabetes treated with insulin, SGLT2 inhibitors (such as dapagliflozin or empagliflozin) or sulfonylureas (such as gliclazide or glimepiride)',
+        'pregnancy_breastfeeding' => 'Pregnancy or breastfeeding',
+        'kidney_disease' => 'Kidney disease',
+        'liver_disease' => 'Liver disease',
+        'pancreatitis' => 'Pancreatitis (current or past)',
+        'gallbladder_disease' => 'Gallbladder disease or gallbladder removal',
+        'eating_disorder_history' => 'A current or past eating disorder',
+        'blood_pressure_medication' => 'Blood-pressure medication',
+    ],
+
+    'validation' => [
+        'age_range' => 'Age must be between :min and :max years.',
+        'height_range' => 'Height must be between :min and :max cm.',
+        'weight_range' => 'Weight must be between :min and :max kg.',
+        'goal_weight_range' => 'Goal weight must be between :min and :max kg.',
+        'calories_below_floor' => 'Calories cannot be lower than :min kcal — that is the safe minimum for your body data.',
+        'carbs_below_net' => 'Total carbs cannot be lower than net carbs.',
+        'macro_calorie_mismatch' => 'Your macros add up to about :macro_calories kcal, but the calorie target is :calories kcal. Adjust the grams or the calories so they are within :percent% of each other.',
+        'weight_date_future' => 'The weigh-in date cannot be in the future.',
+    ],
+
+    'fields' => [
+        'sex' => 'sex',
+        'birth_date' => 'date of birth',
+        'height_cm' => 'height',
+        'weight_kg' => 'weight',
+        'goal_weight_kg' => 'goal weight',
+        'activity_level' => 'activity level',
+        'goal' => 'goal',
+        'approach' => 'diet approach',
+        'calories' => 'calories',
+        'protein_g' => 'protein',
+        'fat_g' => 'fat',
+        'net_carbs_g' => 'net carbs',
+        'carbs_g' => 'total carbs',
+    ],
+];

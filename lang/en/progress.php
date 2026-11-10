@@ -1,0 +1,68 @@
+<?php
+
+return [
+
+    'title' => 'Progress',
+
+    'range' => [
+        'label' => 'Period',
+        '7' => '7 days',
+        '30' => '30 days',
+        '90' => '90 days',
+        '365' => 'Year',
+    ],
+
+    'weight' => [
+        'title' => 'Weight',
+        'add' => 'Add weight',
+        'current' => 'Current',
+        'in_period' => 'in this period',
+        'start' => 'Start of period',
+        'goal' => 'Goal',
+        'remaining' => 'Remaining',
+        'weekly_rate' => 'Weekly rate',
+        'kg_per_week' => 'kg / week',
+        'rate_needs_two' => 'Needs two weigh-ins',
+        'progress' => 'Progress towards your goal',
+        'no_goal' => 'You have not set a goal weight.',
+        'set_goal' => 'Set one in your profile',
+        'fast_title' => 'Losing a little fast',
+        'fast_text' => 'Your recent loss is faster than about 1% of your body weight per week. Early weeks often include water, but if it continues, eat a little more or talk to your doctor.',
+        'trend' => 'Weight trend',
+        'one_point' => 'Add another weigh-in to see a line.',
+        'empty_title' => 'No weigh-ins yet',
+        'empty_text' => 'Add your weight to start tracking your trend.',
+        'entries' => 'Weigh-ins',
+        'edit_entry' => 'Edit weigh-in of :date',
+        'delete_entry' => 'Delete weigh-in of :date',
+        'show_more' => 'Show more',
+        'sheet_title' => 'Weigh-in',
+        'replace_hint' => 'One weigh-in per day: saving for a day that already has one replaces its value.',
+        'date' => 'Date',
+        'note' => 'Note',
+        'saved' => 'Weight saved.',
+        'deleted' => 'Weigh-in deleted.',
+        'delete_title' => 'Delete this weigh-in?',
+        'delete_text' => 'The weigh-in of :date (:kg kg) will be removed.',
+        'delete_text_generic' => 'This weigh-in will be removed.',
+    ],
+
+    'nutrition' => [
+        'title' => 'Nutrition history',
+        'empty_title' => 'Nothing logged in this period',
+        'empty_text' => 'Log your meals and your averages will appear here.',
+        'go_today' => 'Go to Today',
+        'streak' => 'Logging streak',
+        'days' => '{1} day|[0,*] days',
+        'logged' => 'Days logged',
+        'days_unit' => 'days',
+        'adherence' => 'Within net-carb target',
+        'adherence_hint' => 'of the days you logged',
+        'net_carbs_chart' => 'Net carbs per day',
+        'calories_chart' => 'Calories per day',
+        'average_value' => 'Average :value :unit on logged days',
+        'averages' => 'Daily average',
+        'averages_hint' => 'Over the days you logged, compared with your targets.',
+    ],
+
+];

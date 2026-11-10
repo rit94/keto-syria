@@ -1,0 +1,318 @@
+<?php
+
+/** Vegetables, herbs and fruits. See ../foods.php for the record format. */
+['u' => $u, 'est' => $est] = require __DIR__.'/_helpers.php';
+
+return [
+    // ───────────────────────────── Vegetables ─────────────────────────────
+    [
+        'slug' => 'cauliflower-raw', 'ar' => 'زهرة (قرنبيط) نية', 'en' => 'Cauliflower, raw', 'cat' => 'vegetables',
+        'n' => [25, 1.92, 4.97, 2.0, 0.28, 0.13], 'ref' => 'Cauliflower, raw',
+        'aliases' => ['زهرة', 'زهره', 'قرنبيط', 'قرنابيط', 'زهرة نية', 'cauliflower', 'zahra', 'arnabit'],
+        'units' => [$u('cup', 107, true, 'كاسة مقطعة', 'cup, chopped'), $u('piece', 13, false, 'زهرة صغيرة (فلقة)', 'floret'), $u('head', 588, false, 'راس وسط', 'medium head')],
+    ],
+    [
+        'slug' => 'cauliflower-boiled', 'ar' => 'زهرة مسلوقة', 'en' => 'Cauliflower, boiled, drained', 'cat' => 'vegetables', 'state' => 'cooked',
+        'parent' => 'cauliflower-raw', 'n' => [23, 1.84, 4.11, 2.3, 0.45, 0.07], 'ref' => 'Cauliflower, cooked, boiled, drained, without salt',
+        'notes' => ['مسلوقة بدون زيت. إذا كانت مقلية سجّل الزيت الممتص كمكوّن منفصل.', 'Boiled without fat. If fried, log the absorbed oil separately.'],
+        'aliases' => ['زهرة مطبوخة', 'قرنبيط مسلوق', 'زهرة مسلوقه', 'boiled cauliflower', 'cooked cauliflower'],
+        'units' => [$u('cup', 124, true, 'كاسة', 'cup')],
+    ],
+    [
+        'slug' => 'eggplant-raw', 'ar' => 'باذنجان ني', 'en' => 'Eggplant, raw', 'cat' => 'vegetables',
+        'n' => [25, 0.98, 5.88, 3.0, 0.18, 0.034], 'ref' => 'Eggplant, raw',
+        'aliases' => ['بانجان', 'باذنجان', 'بادنجان', 'بيتنجان', 'باتنجان', 'باذنجان أسود', 'eggplant', 'aubergine', 'batenjan', 'banjan'],
+        'units' => [$u('piece', 300, true, 'حبة وسط', 'medium eggplant'), $u('small_piece', 60, false, 'حبة صغيرة (للمحشي/المكدوس)', 'baby eggplant'), $u('cup', 82, false, 'كاسة مكعبات', 'cup, cubed')],
+    ],
+    [
+        'slug' => 'eggplant-boiled', 'ar' => 'باذنجان مسلوق', 'en' => 'Eggplant, boiled, drained', 'cat' => 'vegetables', 'state' => 'cooked',
+        'parent' => 'eggplant-raw', 'n' => [35, 0.83, 8.73, 2.5, 0.23, 0.044], 'ref' => 'Eggplant, cooked, boiled, drained, without salt',
+        'notes' => ['بدون زيت. الباذنجان المقلي يمتص كمية كبيرة من الزيت: سجّل الزيت كمكوّن منفصل.', 'No fat added. Fried eggplant soaks up a lot of oil: log the oil separately.'],
+        'aliases' => ['بانجان مسلوق', 'باذنجان مطبوخ', 'بانجان مطبوخ', 'باذنجان مشوي', 'بانجان مشوي', 'cooked eggplant', 'boiled eggplant'],
+        'units' => [$u('cup', 99, true, 'كاسة مكعبات', 'cup, cubed')],
+    ],
+    [
+        'slug' => 'zucchini-raw', 'ar' => 'كوسا نية', 'en' => 'Zucchini, raw', 'cat' => 'vegetables',
+        'n' => [17, 1.21, 3.11, 1.0, 0.32, 0.084], 'ref' => 'Squash, summer, zucchini, includes skin, raw',
+        'aliases' => ['كوسا', 'كوسة', 'كوسى', 'كوساية', 'zucchini', 'courgette', 'kousa', 'koosa'],
+        'units' => [$u('piece', 100, true, 'حبة وسط', 'medium zucchini'), $u('cup', 113, false, 'كاسة شرحات', 'cup, sliced')],
+    ],
+    [
+        'slug' => 'zucchini-boiled', 'ar' => 'كوسا مسلوقة', 'en' => 'Zucchini, boiled, drained', 'cat' => 'vegetables', 'state' => 'cooked',
+        'parent' => 'zucchini-raw', 'n' => [15, 1.14, 2.69, 1.0, 0.36, 0.072], 'ref' => 'Squash, summer, zucchini, includes skin, cooked, boiled, drained, without salt',
+        'aliases' => ['كوسا مطبوخة', 'كوسة مسلوقة', 'كوسا مطبوخه', 'cooked zucchini', 'boiled zucchini'],
+        'units' => [$u('cup', 180, true, 'كاسة شرحات', 'cup, sliced')],
+    ],
+    [
+        'slug' => 'cucumber', 'ar' => 'خيار', 'en' => 'Cucumber, with peel', 'cat' => 'vegetables',
+        'n' => [15, 0.65, 3.63, 0.5, 0.11, 0.037], 'ref' => 'Cucumber, with peel, raw',
+        'aliases' => ['خيارة', 'خيار بلدي', 'cucumber', 'khyar', 'khiar'],
+        'units' => [$u('piece', 80, true, 'حبة بلدية وسط', 'small local cucumber'), $u('cup', 104, false, 'كاسة شرحات', 'cup, sliced')],
+    ],
+    [
+        'slug' => 'tomato', 'ar' => 'بندورة', 'en' => 'Tomato, red, ripe', 'cat' => 'vegetables',
+        'n' => [18, 0.88, 3.89, 1.2, 0.2, 0.028], 'ref' => 'Tomatoes, red, ripe, raw, year round average',
+        'aliases' => ['بندوره', 'طماطم', 'بنادورة', 'بندورة حمرا', 'tomato', 'banadoura', 'bandora'],
+        'units' => [$u('piece', 123, true, 'حبة وسط', 'medium tomato'), $u('slice', 20), $u('cup', 180, false, 'كاسة مفرومة', 'cup, chopped')],
+    ],
+    [
+        'slug' => 'lettuce', 'ar' => 'خس', 'en' => 'Lettuce, romaine', 'cat' => 'vegetables',
+        'n' => [17, 1.23, 3.29, 2.1, 0.3, 0.039], 'ref' => 'Lettuce, cos or romaine, raw',
+        'aliases' => ['خسة', 'خس بلدي', 'خس عربي', 'lettuce', 'romaine', 'khass'],
+        'units' => [$u('leaf', 28, true, 'ورقة كبيرة', 'outer leaf'), $u('cup', 47, false, 'كاسة مفرومة', 'cup, shredded')],
+    ],
+    [
+        'slug' => 'spinach-raw', 'ar' => 'سبانخ نية', 'en' => 'Spinach, raw', 'cat' => 'vegetables',
+        'n' => [23, 2.86, 3.63, 2.2, 0.39, 0.063], 'ref' => 'Spinach, raw',
+        'aliases' => ['سبانخ', 'سبانغ', 'سبناخ', 'spinach', 'sabanekh'],
+        'units' => [$u('cup', 30, true, 'كاسة ورق', 'cup, leaves'), $u('bunch', 340)],
+    ],
+    [
+        'slug' => 'spinach-boiled', 'ar' => 'سبانخ مسلوقة', 'en' => 'Spinach, boiled, drained', 'cat' => 'vegetables', 'state' => 'cooked',
+        'parent' => 'spinach-raw', 'n' => [23, 2.97, 3.75, 2.4, 0.26, 0.043], 'ref' => 'Spinach, cooked, boiled, drained, without salt',
+        'aliases' => ['سبانخ مطبوخة', 'سبانغ مسلوق', 'cooked spinach', 'boiled spinach'],
+        'units' => [$u('cup', 180, true)],
+    ],
+    [
+        'slug' => 'chard', 'ar' => 'سلق', 'en' => 'Swiss chard, raw', 'cat' => 'vegetables',
+        'n' => [19, 1.8, 3.74, 1.6, 0.2, 0.03], 'ref' => 'Chard, swiss, raw',
+        'aliases' => ['سلقة', 'ورق سلق', 'chard', 'swiss chard', 'silq', 'selek'],
+        'units' => [$u('leaf', 48, true), $u('cup', 36, false, 'كاسة مفرومة', 'cup, chopped')],
+    ],
+    [
+        'slug' => 'cabbage', 'ar' => 'ملفوف', 'en' => 'Cabbage, raw', 'cat' => 'vegetables',
+        'n' => [25, 1.28, 5.8, 2.5, 0.1, 0.034], 'ref' => 'Cabbage, raw',
+        'aliases' => ['ملفوف أبيض', 'يخنا', 'كرنب', 'لهانة', 'cabbage', 'malfouf'],
+        'units' => [$u('cup', 89, true, 'كاسة مفرومة', 'cup, chopped'), $u('leaf', 33, false, 'ورقة كبيرة', 'large leaf')],
+    ],
+    [
+        'slug' => 'bell-pepper-green', 'ar' => 'فليفلة خضرا حلوة', 'en' => 'Bell pepper, green', 'cat' => 'vegetables',
+        'n' => [20, 0.86, 4.64, 1.7, 0.17, 0.058], 'ref' => 'Peppers, sweet, green, raw',
+        'aliases' => ['فليفلة', 'فليفله', 'فليفلة خضرا', 'فلفل أخضر', 'فلفل حلو', 'فلفل رومي', 'bell pepper', 'green pepper', 'flefleh', 'fleifleh'],
+        'units' => [$u('piece', 119, true, 'حبة وسط', 'medium pepper'), $u('cup', 149, false, 'كاسة مفرومة', 'cup, chopped')],
+    ],
+    [
+        'slug' => 'bell-pepper-red', 'ar' => 'فليفلة حمرا حلوة', 'en' => 'Bell pepper, red', 'cat' => 'vegetables',
+        'n' => [31, 0.99, 6.03, 2.1, 0.3, 0.027], 'ref' => 'Peppers, sweet, red, raw', 'exempt' => 'specific_factors',
+        'aliases' => ['فليفلة حمرا', 'فلفل أحمر', 'فليفله حمرا', 'red pepper', 'red bell pepper'],
+        'units' => [$u('piece', 119, true, 'حبة وسط', 'medium pepper')],
+    ],
+    [
+        'slug' => 'chili-green', 'ar' => 'فليفلة حدة', 'en' => 'Hot chili pepper, green', 'cat' => 'vegetables',
+        'n' => [40, 2.0, 9.46, 1.5, 0.2, 0.021], 'ref' => 'Peppers, hot chili, green, raw',
+        'aliases' => ['فليفلة حارة', 'فلفل حار', 'فليفلة حرة', 'قرن فليفلة', 'chili', 'hot pepper'],
+        'units' => [$u('piece', 15, true, 'قرن', 'pepper')],
+    ],
+    [
+        'slug' => 'green-beans', 'ar' => 'فاصوليا خضرا (لوبية)', 'en' => 'Green beans, raw', 'cat' => 'vegetables',
+        'n' => [31, 1.83, 6.97, 2.7, 0.22, 0.05], 'ref' => 'Beans, snap, green, raw',
+        'aliases' => ['لوبية', 'لوبيا', 'فاصوليا خضرا', 'فاصوليا خضراء', 'فاصولية خضرا', 'لوبية خضرا', 'green beans', 'loubieh', 'fasolia'],
+        'units' => [$u('cup', 100, true, 'كاسة مقطعة', 'cup, cut')],
+    ],
+    [
+        'slug' => 'okra', 'ar' => 'بامية', 'en' => 'Okra, raw', 'cat' => 'vegetables',
+        'n' => [33, 1.93, 7.45, 3.2, 0.19, 0.026], 'ref' => 'Okra, raw',
+        'aliases' => ['باميا', 'بامياء', 'باميه', 'okra', 'bamia', 'bamieh'],
+        'units' => [$u('cup', 100, true)],
+    ],
+    [
+        'slug' => 'onion', 'ar' => 'بصل', 'en' => 'Onion, raw', 'cat' => 'vegetables',
+        'n' => [40, 1.1, 9.34, 1.7, 0.1, 0.042], 'ref' => 'Onions, raw',
+        'aliases' => ['بصلة', 'بصل يابس', 'بصل أبيض', 'بصل أحمر', 'onion', 'basal'],
+        'units' => [$u('piece', 110, true, 'حبة وسط', 'medium onion'), $u('tbsp', 10, false, 'ملعقة كبيرة مفروم', 'tablespoon, chopped')],
+    ],
+    [
+        'slug' => 'green-onion', 'ar' => 'بصل أخضر', 'en' => 'Green onion (scallion)', 'cat' => 'vegetables',
+        'n' => [32, 1.83, 7.34, 2.6, 0.19, 0.032], 'ref' => 'Onions, spring or scallions (includes tops and bulb), raw',
+        'aliases' => ['بصل اخضر', 'بصلة خضرا', 'scallion', 'spring onion', 'green onion'],
+        'units' => [$u('piece', 15, true, 'عود', 'stalk')],
+    ],
+    [
+        'slug' => 'garlic', 'ar' => 'توم', 'en' => 'Garlic, raw', 'cat' => 'vegetables',
+        'n' => [149, 6.36, 33.06, 2.1, 0.5, 0.089], 'ref' => 'Garlic, raw',
+        'aliases' => ['ثوم', 'تومة', 'سن توم', 'فص ثوم', 'garlic', 'toum'],
+        'units' => [$u('clove', 3, true)],
+    ],
+    [
+        'slug' => 'radish', 'ar' => 'فجل', 'en' => 'Radish, raw', 'cat' => 'vegetables',
+        'n' => [16, 0.68, 3.4, 1.6, 0.1, 0.032], 'ref' => 'Radishes, raw',
+        'aliases' => ['فجلة', 'فجل أحمر', 'radish', 'fijil', 'fijel'],
+        'units' => [$u('piece', 9, true, 'حبة كبيرة', 'large radish')],
+    ],
+    [
+        'slug' => 'asparagus', 'ar' => 'هليون', 'en' => 'Asparagus, raw', 'cat' => 'vegetables',
+        'n' => [20, 2.2, 3.88, 2.1, 0.12, 0.04], 'ref' => 'Asparagus, raw',
+        'aliases' => ['هليون أخضر', 'اسباراجوس', 'asparagus', 'halyoun'],
+        'units' => [$u('piece', 16, true, 'عود وسط', 'medium spear')],
+    ],
+    [
+        'slug' => 'broccoli', 'ar' => 'بروكلي', 'en' => 'Broccoli, raw', 'cat' => 'vegetables',
+        'n' => [34, 2.82, 6.64, 2.6, 0.37, 0.039], 'ref' => 'Broccoli, raw',
+        'aliases' => ['بروكولي', 'بركولي', 'زهرة خضرا', 'broccoli', 'brokoli'],
+        'units' => [$u('cup', 91, true, 'كاسة مقطعة', 'cup, chopped')],
+    ],
+    [
+        'slug' => 'mushroom-raw', 'ar' => 'فطر طازج', 'en' => 'Mushrooms, white, raw', 'cat' => 'vegetables',
+        'n' => [22, 3.09, 3.26, 1.0, 0.34, 0.05], 'ref' => 'Mushrooms, white, raw', 'exempt' => 'specific_factors',
+        'aliases' => ['فطر', 'مشروم', 'ماشروم', 'فطر أبيض', 'عيش الغراب', 'mushroom', 'mushrooms', 'futr', 'fitr'],
+        'units' => [$u('piece', 18, true, 'حبة وسط', 'medium mushroom'), $u('cup', 70, false, 'كاسة شرحات', 'cup, sliced')],
+    ],
+    [
+        'slug' => 'mushroom-canned', 'ar' => 'فطر معلب (مصفى)', 'en' => 'Mushrooms, canned, drained', 'cat' => 'vegetables', 'state' => 'na', 'prep' => 'drained',
+        'parent' => 'mushroom-raw', 'n' => [25, 1.87, 5.09, 2.4, 0.29, 0.038], 'ref' => 'Mushrooms, canned, drained solids',
+        'aliases' => ['فطر علبة', 'فطر معلب', 'مشروم معلب', 'canned mushrooms'],
+        'units' => [$u('cup', 156, true), $u('can', 230, false, 'علبة (الوزن المصفى ~230 غ)', 'can (drained ~230 g)')],
+    ],
+    [
+        'slug' => 'celery', 'ar' => 'كرفس', 'en' => 'Celery, raw', 'cat' => 'vegetables',
+        'n' => [14, 0.69, 2.97, 1.6, 0.17, 0.042], 'ref' => 'Celery, raw',
+        'aliases' => ['كرافس', 'celery', 'krafs'],
+        'units' => [$u('piece', 40, true, 'عود وسط', 'medium stalk')],
+    ],
+    [
+        'slug' => 'carrot', 'ar' => 'جزر', 'en' => 'Carrot, raw', 'cat' => 'vegetables',
+        'n' => [41, 0.93, 9.58, 2.8, 0.24, 0.037], 'ref' => 'Carrots, raw',
+        'notes' => ['كربوهيدراته أعلى من الخضار الورقية: انتبه للكمية.', 'Higher in carbs than leafy vegetables: watch the amount.'],
+        'aliases' => ['جزرة', 'جزر أصفر', 'carrot', 'jazar'],
+        'units' => [$u('piece', 61, true, 'حبة وسط', 'medium carrot')],
+    ],
+    [
+        'slug' => 'turnip', 'ar' => 'لفت', 'en' => 'Turnip, raw', 'cat' => 'vegetables',
+        'n' => [28, 0.9, 6.43, 1.8, 0.1, 0.011], 'ref' => 'Turnips, raw',
+        'aliases' => ['لفتة', 'شلغم', 'turnip', 'lift'],
+        'units' => [$u('piece', 122, true, 'حبة وسط', 'medium turnip')],
+    ],
+    [
+        'slug' => 'purslane', 'ar' => 'بقلة', 'en' => 'Purslane, raw', 'cat' => 'vegetables',
+        'n' => [20, 2.03, 3.39, null, 0.36, null], 'ref' => 'Purslane, raw', 'exempt' => 'specific_factors',
+        'notes' => ['الألياف غير متوفرة في المصدر، لذلك تُحسب كل الكربوهيدرات كصافية.', 'Fiber is not reported by the source, so all carbohydrate counts as net.'],
+        'aliases' => ['بقله', 'رجلة', 'فرفحين', 'فرفحينة', 'بقلة خضرا', 'purslane', 'baqleh', 'bakleh'],
+        'units' => [$u('cup', 43, true)],
+    ],
+    [
+        'slug' => 'potato-raw', 'ar' => 'بطاطا نية', 'en' => 'Potato, raw', 'cat' => 'vegetables', 'keto' => false,
+        'n' => [77, 2.05, 17.49, 2.1, 0.09, 0.025], 'ref' => 'Potatoes, flesh and skin, raw',
+        'aliases' => ['بطاطا', 'بطاطس', 'بطاطة', 'potato', 'batata'],
+        'units' => [$u('piece', 170, true, 'حبة وسط', 'medium potato')],
+    ],
+    [
+        'slug' => 'potato-boiled', 'ar' => 'بطاطا مسلوقة', 'en' => 'Potato, boiled', 'cat' => 'vegetables', 'state' => 'cooked', 'keto' => false,
+        'parent' => 'potato-raw', 'n' => [87, 1.87, 20.13, 1.8, 0.1, 0.026], 'ref' => 'Potatoes, boiled, cooked in skin, flesh, without salt',
+        'aliases' => ['بطاطس مسلوقة', 'بطاطا مسلوقه', 'boiled potato'],
+        'units' => [$u('piece', 136, true, 'حبة وسط', 'medium potato')],
+    ],
+    [
+        'slug' => 'potato-fried', 'ar' => 'بطاطا مقلية', 'en' => 'French fries', 'cat' => 'vegetables', 'state' => 'cooked', 'keto' => false,
+        'parent' => 'potato-raw', 'n' => [312, 3.43, 41.44, 3.8, 14.73, 2.34], 'conf' => 'medium',
+        'notes' => ['قيم بطاطا مقلية جاهزة (مطاعم)؛ المقلية في البيت تختلف حسب كمية الزيت الممتص.', 'Restaurant-style fries; home-fried potatoes vary with the oil absorbed.'],
+        'aliases' => ['بطاطا مقليه', 'بطاطس مقلية', 'فرايز', 'french fries', 'fries', 'chips'],
+        'units' => [$u('cup', 57, true, 'صحن صغير', 'small serving')],
+    ],
+
+    // ─────────────────────────────── Herbs ────────────────────────────────
+    [
+        'slug' => 'parsley', 'ar' => 'بقدونس', 'en' => 'Parsley, fresh', 'cat' => 'herbs',
+        'n' => [36, 2.97, 6.33, 3.3, 0.79, 0.132], 'ref' => 'Parsley, fresh',
+        'aliases' => ['بقدونس أخضر', 'بئدونس', 'مقدونس', 'معدنوس', 'parsley', 'baqdounes', 'bakdounes'],
+        'units' => [$u('tbsp', 3.8, true, 'ملعقة كبيرة مفروم', 'tablespoon, chopped'), $u('cup', 60, false, 'كاسة مفروم', 'cup, chopped'), $u('bunch', 60, false, 'ضمة صغيرة', 'small bunch')],
+    ],
+    [
+        'slug' => 'mint-fresh', 'ar' => 'نعنع أخضر', 'en' => 'Mint (spearmint), fresh', 'cat' => 'herbs',
+        'n' => [44, 3.29, 8.41, 6.8, 0.73, 0.191], 'ref' => 'Spearmint, fresh',
+        'aliases' => ['نعنع', 'نعناع', 'نعنع طازج', 'نعناع أخضر', 'mint', 'spearmint', 'nana'],
+        'units' => [$u('tbsp', 5.7, true, 'ملعقة كبيرة مفروم', 'tablespoon, chopped')],
+    ],
+    [
+        'slug' => 'mint-dried', 'ar' => 'نعنع يابس', 'en' => 'Mint (spearmint), dried', 'cat' => 'herbs', 'state' => 'na',
+        'parent' => 'mint-fresh', 'n' => [285, 19.93, 52.04, 29.8, 6.03, 1.577], 'ref' => 'Spearmint, dried',
+        'aliases' => ['نعنع ناشف', 'نعناع يابس', 'نعناع مجفف', 'نعنع مجفف', 'dried mint'],
+        'units' => [$u('tsp', 0.5, true), $u('tbsp', 1.6)],
+    ],
+    [
+        'slug' => 'arugula', 'ar' => 'جرجير', 'en' => 'Arugula (rocket)', 'cat' => 'herbs',
+        'n' => [25, 2.58, 3.65, 1.6, 0.66, 0.086], 'ref' => 'Arugula, raw',
+        'aliases' => ['جرجير أخضر', 'روكا', 'روكة', 'arugula', 'rocket', 'jarjeer', 'jarjir', 'rocca'],
+        'units' => [$u('cup', 20, true), $u('bunch', 60, false, 'ضمة صغيرة', 'small bunch')],
+    ],
+    [
+        'slug' => 'cilantro', 'ar' => 'كزبرة خضرا', 'en' => 'Coriander leaves (cilantro), fresh', 'cat' => 'herbs',
+        'n' => [23, 2.13, 3.67, 2.8, 0.52, 0.014], 'ref' => 'Coriander (cilantro) leaves, raw',
+        'aliases' => ['كزبرة', 'كزبره', 'كسبرة', 'كزبرة خضراء', 'cilantro', 'coriander', 'kizbara', 'kuzbara'],
+        'units' => [$u('tbsp', 1, true, 'ملعقة كبيرة مفروم', 'tablespoon, chopped'), $u('cup', 16, false, 'كاسة', 'cup')],
+    ],
+
+    // ─────────────────────────────── Fruits ───────────────────────────────
+    [
+        'slug' => 'avocado', 'ar' => 'أفوكادو', 'en' => 'Avocado', 'cat' => 'fruits',
+        'n' => [160, 2.0, 8.53, 6.7, 14.66, 2.126], 'ref' => 'Avocados, raw, all commercial varieties',
+        'aliases' => ['افوكادو', 'أفوكاتو', 'افوكاتو', 'أفوكا', 'avocado', 'avocat'],
+        'units' => [$u('piece', 150, true, 'حبة وسط (بدون قشرة وبذرة)', 'medium avocado (flesh only)'), $u('half', 75, false, 'نص حبة', 'half avocado'), $u('tbsp', 14, false, 'ملعقة كبيرة مهروس', 'tablespoon, mashed')],
+    ],
+    [
+        'slug' => 'lemon', 'ar' => 'ليمون حامض', 'en' => 'Lemon, peeled', 'cat' => 'fruits',
+        'n' => [29, 1.1, 9.32, 2.8, 0.3, 0.039], 'ref' => 'Lemons, raw, without peel', 'exempt' => 'specific_factors',
+        'aliases' => ['ليمون', 'حامض', 'ليمونة', 'حامضة', 'ليمونه', 'lemon', 'laymoun', 'hamod'],
+        'units' => [$u('piece', 58, true, 'حبة وسط (بدون قشرة)', 'medium lemon (peeled)'), $u('slice', 7)],
+    ],
+    [
+        'slug' => 'lemon-juice', 'ar' => 'عصير حامض (ليمون)', 'en' => 'Lemon juice, fresh', 'cat' => 'fruits', 'state' => 'na',
+        'parent' => 'lemon', 'n' => [22, 0.35, 6.9, 0.3, 0.24, 0.04], 'ref' => 'Lemon juice, raw', 'exempt' => 'specific_factors',
+        'aliases' => ['عصير ليمون', 'عصير حامض', 'عصرة حامض', 'عصير الليمون', 'مي حامض', 'lemon juice'],
+        'units' => [$u('tbsp', 15, true), $u('tsp', 5), $u('piece', 48, false, 'عصير حبة وسط', 'juice of 1 lemon')],
+    ],
+    [
+        'slug' => 'strawberry', 'ar' => 'فريز', 'en' => 'Strawberries', 'cat' => 'fruits',
+        'n' => [32, 0.67, 7.68, 2.0, 0.3, 0.015], 'ref' => 'Strawberries, raw',
+        'aliases' => ['فراولة', 'فريزة', 'فراوله', 'توت أرضي', 'strawberry', 'strawberries', 'freiz', 'fraise'],
+        'units' => [$u('piece', 12, true, 'حبة وسط', 'medium berry'), $u('cup', 152, false, 'كاسة أنصاف', 'cup, halves')],
+    ],
+    [
+        'slug' => 'blackberry', 'ar' => 'توت العليق (بلاك بيري)', 'en' => 'Blackberries', 'cat' => 'fruits',
+        'n' => [43, 1.39, 9.61, 5.3, 0.49, 0.014], 'ref' => 'Blackberries, raw',
+        'aliases' => ['عليق', 'توت عليق', 'توت بري', 'توت أسود', 'بلاك بيري', 'blackberry', 'blackberries', 'berries'],
+        'units' => [$u('cup', 144, true), $u('handful', 40)],
+    ],
+    [
+        'slug' => 'mulberry', 'ar' => 'توت شامي', 'en' => 'Mulberries', 'cat' => 'fruits',
+        'n' => [43, 1.44, 9.8, 1.7, 0.39, 0.027], 'ref' => 'Mulberries, raw',
+        'notes' => ['صافي الكربوهيدرات أعلى من الفريز والعليق: كمية صغيرة فقط.', 'Higher net carbs than strawberries or blackberries: small amounts only.'],
+        'aliases' => ['توت', 'توت أبيض', 'توت أحمر', 'mulberry', 'mulberries', 'toot'],
+        'units' => [$u('cup', 140, true), $u('handful', 40)],
+    ],
+    [
+        'slug' => 'apple', 'ar' => 'تفاح', 'en' => 'Apple, with skin', 'cat' => 'fruits', 'keto' => false,
+        'n' => [52, 0.26, 13.81, 2.4, 0.17, 0.028], 'ref' => 'Apples, raw, with skin',
+        'aliases' => ['تفاحة', 'تفاحه', 'apple', 'tuffah'],
+        'units' => [$u('piece', 182, true, 'حبة وسط', 'medium apple')],
+    ],
+    [
+        'slug' => 'banana', 'ar' => 'موز', 'en' => 'Banana', 'cat' => 'fruits', 'keto' => false,
+        'n' => [89, 1.09, 22.84, 2.6, 0.33, 0.112], 'ref' => 'Bananas, raw',
+        'aliases' => ['موزة', 'موزه', 'banana', 'mawz', 'moz'],
+        'units' => [$u('piece', 118, true, 'حبة وسط (بدون قشرة)', 'medium banana (peeled)')],
+    ],
+    [
+        'slug' => 'orange', 'ar' => 'برتقال', 'en' => 'Orange', 'cat' => 'fruits', 'keto' => false,
+        'n' => [47, 0.94, 11.75, 2.4, 0.12, 0.015], 'ref' => 'Oranges, raw, all commercial varieties',
+        'aliases' => ['برتقالة', 'برتقان', 'بردقان', 'orange', 'burtuqal'],
+        'units' => [$u('piece', 131, true, 'حبة وسط (بدون قشرة)', 'medium orange (peeled)')],
+    ],
+    [
+        'slug' => 'grapes', 'ar' => 'عنب', 'en' => 'Grapes', 'cat' => 'fruits', 'keto' => false,
+        'n' => [69, 0.72, 18.1, 0.9, 0.16, 0.054], 'ref' => 'Grapes, red or green (European type, such as Thompson seedless), raw',
+        'aliases' => ['عنبة', 'عنب بلدي', 'عنب أحمر', 'grapes', 'grape', 'enab'],
+        'units' => [$u('cup', 151, true), $u('piece', 5, false, 'حبة', 'grape')],
+    ],
+    [
+        'slug' => 'watermelon', 'ar' => 'بطيخ أحمر (جبس)', 'en' => 'Watermelon', 'cat' => 'fruits', 'keto' => false,
+        'n' => [30, 0.61, 7.55, 0.4, 0.15, 0.016], 'ref' => 'Watermelon, raw',
+        'aliases' => ['جبس', 'بطيخ', 'بطيخ احمر', 'جبسة', 'watermelon', 'jabas', 'battikh'],
+        'units' => [$u('cup', 152, true, 'كاسة مكعبات', 'cup, diced'), $u('slice', 286, false, 'حز', 'wedge')],
+    ],
+    [
+        'slug' => 'dates', 'ar' => 'تمر', 'en' => 'Dates', 'cat' => 'fruits', 'state' => 'na', 'keto' => false,
+        'n' => [282, 2.45, 75.03, 8.0, 0.39, 0.032], 'ref' => 'Dates, deglet noor',
+        'aliases' => ['تمرة', 'تمره', 'بلح', 'عجوة', 'dates', 'date', 'tamr', 'tamer'],
+        'units' => [$u('piece', 8, true, 'حبة (بدون بذرة)', 'date (pitted)')],
+    ],
+];

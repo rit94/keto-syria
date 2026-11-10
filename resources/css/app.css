@@ -1,0 +1,375 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../../app/View';
+@source '../../app/Livewire';
+
+/* Dark mode is class-driven (<html class="dark">), set before paint by layouts/partials/head. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ | Direction variants follow the nearest [dir] ancestor, so an LTR island inside
+ | an RTL page (numbers, the style guide) is not treated as RTL.
+ */
+@custom-variant rtl (&:where([dir='rtl'], [dir='rtl'] *):not(:where([dir='rtl'] [dir='ltr'], [dir='rtl'] [dir='ltr'] *)));
+@custom-variant ltr (&:where([dir='ltr'], [dir='ltr'] *):not(:where([dir='ltr'] [dir='rtl'], [dir='ltr'] [dir='rtl'] *)));
+
+/* ------------------------------------------------------------------------
+ | Design tokens — raw values. Light first, dark overrides below.
+ | Use the semantic utilities generated from @theme (bg-surface, text-ink-muted,
+ | border-line, bg-accent, rounded-card, shadow-card, h-touch …), not raw hex.
+ * --------------------------------------------------------------------- */
+:root {
+    color-scheme: light;
+
+    /* surfaces (warm neutrals) */
+    --canvas: #faf8f4;
+    --surface: #ffffff;
+    --surface-2: #f4f0e9;
+    --surface-3: #e9e4d9;
+    --overlay: rgb(31 29 24 / 0.45);
+
+    /* text */
+    --ink: #1f1d18;
+    --ink-muted: #5c564a;
+    --ink-subtle: #736c5e;
+
+    /* lines */
+    --line: #e5dfd3;
+    --line-strong: #8e8676;
+
+    /* accent — deep olive */
+    --accent: #56682b;
+    --accent-hover: #46561f;
+    --accent-soft: #eef1e2;
+    --accent-ink: #4a5b22;
+    --on-accent: #ffffff;
+
+    /* status */
+    --danger: #b3372b;
+    --danger-hover: #992b21;
+    --danger-soft: #fbedea;
+    --danger-ink: #a12f24;
+    --on-danger: #ffffff;
+    --warning: #b97a10;
+    --warning-soft: #fbf1dc;
+    --warning-ink: #855600;
+    --success: #2f7a4b;
+    --success-soft: #e6f3ea;
+    --success-ink: #24633c;
+    --info: #2e6a8e;
+    --info-soft: #e5f0f6;
+    --info-ink: #24587a;
+
+    /* macro series */
+    --macro-kcal: #56682b;
+    --macro-carbs: #b8651f;
+    --macro-protein: #4b6e94;
+    --macro-fat: #a3852a;
+    --macro-fiber: #5f8a66;
+    --track: #e9e4d9;
+
+    --focus: #56682b;
+
+    --shadow-card-value: 0 1px 2px rgb(31 29 24 / 0.04), 0 1px 1px rgb(31 29 24 / 0.03);
+    --shadow-raised-value: 0 4px 12px rgb(31 29 24 / 0.08), 0 1px 3px rgb(31 29 24 / 0.06);
+    --shadow-overlay-value: 0 16px 40px rgb(31 29 24 / 0.18), 0 4px 12px rgb(31 29 24 / 0.1);
+}
+
+.dark {
+    color-scheme: dark;
+
+    --canvas: #151411;
+    --surface: #1d1b17;
+    --surface-2: #262420;
+    --surface-3: #312e28;
+    --overlay: rgb(0 0 0 / 0.6);
+
+    --ink: #f1eee7;
+    --ink-muted: #bab4a6;
+    --ink-subtle: #989284;
+
+    --line: #34312b;
+    --line-strong: #7a7363;
+
+    --accent: #a9bf6a;
+    --accent-hover: #b9cc82;
+    --accent-soft: #2a311a;
+    --accent-ink: #b5c97c;
+    --on-accent: #1a2008;
+
+    --danger: #e5786b;
+    --danger-hover: #ec8d82;
+    --danger-soft: #3a1d19;
+    --danger-ink: #f0958a;
+    --on-danger: #2a0a06;
+    --warning: #e0b45c;
+    --warning-soft: #3a2e14;
+    --warning-ink: #e8c479;
+    --success: #7cc495;
+    --success-soft: #1b3324;
+    --success-ink: #93d1a9;
+    --info: #7fb6d6;
+    --info-soft: #18303d;
+    --info-ink: #9cc8e2;
+
+    --macro-kcal: #a9bf6a;
+    --macro-carbs: #e0955a;
+    --macro-protein: #86a9cf;
+    --macro-fat: #d1b55c;
+    --macro-fiber: #9dc3a2;
+    --track: #312e28;
+
+    --focus: #b5c97c;
+
+    --shadow-card-value: 0 1px 2px rgb(0 0 0 / 0.3);
+    --shadow-raised-value: 0 4px 12px rgb(0 0 0 / 0.4);
+    --shadow-overlay-value: 0 16px 40px rgb(0 0 0 / 0.55);
+}
+
+/* ------------------------------------------------------------------------
+ | Tailwind theme — semantic utilities bound to the tokens above.
+ * --------------------------------------------------------------------- */
+@theme inline {
+    --font-sans: var(--font-plex, 'IBM Plex Sans Arabic'), ui-sans-serif, system-ui, 'Segoe UI', Tahoma, sans-serif;
+
+    --color-canvas: var(--canvas);
+    --color-surface: var(--surface);
+    --color-surface-2: var(--surface-2);
+    --color-surface-3: var(--surface-3);
+    --color-overlay: var(--overlay);
+
+    --color-ink: var(--ink);
+    --color-ink-muted: var(--ink-muted);
+    --color-ink-subtle: var(--ink-subtle);
+
+    --color-line: var(--line);
+    --color-line-strong: var(--line-strong);
+
+    --color-accent: var(--accent);
+    --color-accent-hover: var(--accent-hover);
+    --color-accent-soft: var(--accent-soft);
+    --color-accent-ink: var(--accent-ink);
+    --color-on-accent: var(--on-accent);
+
+    --color-danger: var(--danger);
+    --color-danger-hover: var(--danger-hover);
+    --color-danger-soft: var(--danger-soft);
+    --color-danger-ink: var(--danger-ink);
+    --color-on-danger: var(--on-danger);
+    --color-warning: var(--warning);
+    --color-warning-soft: var(--warning-soft);
+    --color-warning-ink: var(--warning-ink);
+    --color-success: var(--success);
+    --color-success-soft: var(--success-soft);
+    --color-success-ink: var(--success-ink);
+    --color-info: var(--info);
+    --color-info-soft: var(--info-soft);
+    --color-info-ink: var(--info-ink);
+
+    --color-macro-kcal: var(--macro-kcal);
+    --color-macro-carbs: var(--macro-carbs);
+    --color-macro-protein: var(--macro-protein);
+    --color-macro-fat: var(--macro-fat);
+    --color-macro-fiber: var(--macro-fiber);
+    --color-track: var(--track);
+
+    --color-focus: var(--focus);
+
+    --shadow-card: var(--shadow-card-value);
+    --shadow-raised: var(--shadow-raised-value);
+    --shadow-overlay: var(--shadow-overlay-value);
+}
+
+@theme {
+    /* radius: controls (inputs, buttons), cards, sheets/modals */
+    --radius-control: 0.75rem;
+    --radius-card: 1rem;
+    --radius-sheet: 1.5rem;
+
+    /* spacing: h-touch / min-h-touch / size-touch = 44 px target, px-gutter = page gutter */
+    --spacing-touch: 2.75rem;
+    --spacing-gutter: 1rem;
+    --spacing-tabbar: 4rem;
+    --spacing-rail: 16rem;
+    --spacing-topbar: 3.5rem;
+
+    --container-page: 44rem;
+    --container-page-wide: 72rem;
+
+    --default-transition-duration: 150ms;
+}
+
+/* ------------------------------------------------------------------------
+ | Base
+ * --------------------------------------------------------------------- */
+@layer base {
+    html {
+        font-family: var(--font-sans);
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
+        scroll-padding-top: calc(var(--spacing-topbar) + 1rem);
+    }
+
+    body {
+        background-color: var(--canvas);
+        color: var(--ink);
+        font-variant-numeric: tabular-nums lining-nums;
+        line-height: 1.6;
+        text-rendering: optimizeLegibility;
+    }
+
+    /* Arabic needs a touch more leading than Latin and no letter-spacing. */
+    :where([lang='ar'], [lang='ar'] *) {
+        letter-spacing: 0;
+    }
+
+    :focus-visible {
+        outline: 2px solid var(--focus);
+        outline-offset: 2px;
+    }
+
+    ::selection {
+        background-color: var(--accent-soft);
+        color: var(--ink);
+    }
+
+    [x-cloak] {
+        display: none !important;
+    }
+
+    /* iOS zooms inputs under 16px. */
+    input,
+    select,
+    textarea {
+        font-size: 1rem;
+    }
+
+    input[type='number'] {
+        -moz-appearance: textfield;
+        appearance: textfield;
+    }
+
+    input[type='number']::-webkit-inner-spin-button,
+    input[type='number']::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type='search']::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+    }
+
+    button:not(:disabled),
+    [role='button']:not([aria-disabled='true']),
+    summary {
+        cursor: pointer;
+    }
+}
+
+/* ------------------------------------------------------------------------
+ | Utilities
+ * --------------------------------------------------------------------- */
+
+/* Numbers: Western tabular digits, isolated from the surrounding bidi run. */
+@utility num {
+    font-variant-numeric: tabular-nums lining-nums;
+    unicode-bidi: isolate;
+    direction: ltr;
+    display: inline-block;
+}
+
+/* Safe-area helpers for fixed bars. */
+@utility pt-safe {
+    padding-top: env(safe-area-inset-top, 0px);
+}
+
+@utility pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Bottom padding that clears the mobile tab bar (use on page-level fixed footers too). */
+@utility pb-tabbar {
+    padding-bottom: calc(var(--spacing-tabbar) + env(safe-area-inset-bottom, 0px) + 1.5rem);
+}
+
+@utility bottom-tabbar {
+    bottom: calc(var(--spacing-tabbar) + env(safe-area-inset-bottom, 0px));
+}
+
+/* Shared control surface for input / select / textarea. */
+@utility control {
+    display: block;
+    width: 100%;
+    min-height: var(--spacing-touch);
+    border-radius: var(--radius-control);
+    border: 1px solid var(--line-strong);
+    background-color: var(--surface);
+    color: var(--ink);
+    padding: 0.5rem 0.875rem;
+    transition:
+        border-color 150ms,
+        box-shadow 150ms;
+
+    &::placeholder {
+        color: var(--ink-subtle);
+        opacity: 1;
+    }
+
+    &:hover:not(:disabled) {
+        border-color: var(--ink-muted);
+    }
+
+    &:focus {
+        outline: 2px solid var(--focus);
+        outline-offset: 1px;
+        border-color: var(--focus);
+    }
+
+    &:disabled {
+        background-color: var(--surface-2);
+        color: var(--ink-subtle);
+        cursor: not-allowed;
+    }
+
+    &[aria-invalid='true'] {
+        border-color: var(--danger);
+    }
+
+    &[aria-invalid='true']:focus {
+        outline-color: var(--danger);
+    }
+}
+
+@utility skeleton {
+    background-color: var(--surface-3);
+    border-radius: var(--radius-control);
+    animation: skeleton-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes skeleton-pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.55;
+    }
+}
+
+/* Livewire navigate progress bar picks up the accent. */
+#nprogress .bar {
+    background: var(--accent) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
